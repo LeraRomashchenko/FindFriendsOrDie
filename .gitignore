@@ -1,0 +1,5 @@
+v/
+venv/
+imgs/
+*.log
+config.ini
