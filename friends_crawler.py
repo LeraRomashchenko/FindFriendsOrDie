@@ -42,11 +42,14 @@ api = vk_api_auth.login_to_api(log)
 log.info("starting")
 
 with PeopleSqlite("people.db", log) as db:
-    top_10_unloaded = [58071469]
-    while top_10_unloaded:
+    db.add_unloaded_person(58071469)
+    while True:
+        top_10_unloaded = db.get_unloaded_people_ids(10)
+        if not top_10_unloaded:
+            # we've downloaded the whole vk
+            break
         friends = get_friends(top_10_unloaded)
         db.load_people(friends)
-        top_10_unloaded = db.get_unloaded_people_ids(10)
         log.info("%s people in db" % db.stat())
 
     log.info("end")

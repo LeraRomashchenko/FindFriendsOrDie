@@ -13,9 +13,14 @@ class PeopleSqlite:
         log.info("tables: %s", self.stat())
         self.conn.commit()
 
+    def add_unloaded_person(self, person_id):
+        c = self.conn.cursor()
+        c.execute("insert or ignore into people (person_id, is_loaded) values (?, 0)", [person_id])
+        self.conn.commit()
+
     def get_unloaded_people_ids(self, top_n):
         c = self.conn.cursor()
-        return (id for id, in c.execute("select person_id from people where is_loaded = 0 "
+        return (id for (id,) in c.execute("select person_id from people where is_loaded = 0 "
                                         "order by rowid limit ?", [top_n]))
 
     def load_people(self, people):

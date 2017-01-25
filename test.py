@@ -11,6 +11,11 @@ class FriendsAndImagesSqliteTestCase(unittest.TestCase):
         res = list(self.db.get_unloaded_people_ids(10))
         self.assertListEqual(res, [])
 
+    def test_gets_added_unloaded_people(self):
+        self.db.add_unloaded_person(123)
+        res = list(self.db.get_unloaded_people_ids(10))
+        self.assertListEqual(res, [123])
+
     def test_marks_friends_of_loaded_person_unloaded(self):
         self.db.load_people([{
             'id': 1,
