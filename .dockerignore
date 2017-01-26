@@ -1,0 +1,8 @@
+v/
+venv/
+imgs/
+*.log
+config.ini
+*.db
+*.pyc
+.idea/
