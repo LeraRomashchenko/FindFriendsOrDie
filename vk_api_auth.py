@@ -3,7 +3,7 @@ from configparser import ConfigParser
 
 def login_to_api(log):
     config = ConfigParser()
-    config.read("config.ini")
+    config.read("settings.ini")
     log.info("read config")
     auth = dict(config.items("auth"))
     log.info("auth app=%s, login=%s" % (auth["app_id"], auth["user_login"]))

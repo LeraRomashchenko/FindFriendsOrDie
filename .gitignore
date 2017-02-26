@@ -2,7 +2,7 @@ v/
 venv/
 imgs/
 *.log
-config.ini
+settings.ini
 *.db
 *.pyc
 .idea/
