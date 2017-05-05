@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import logging
 import vk_api_auth
 import time
@@ -6,6 +7,7 @@ from people_sqlite import PeopleSqlite
 # noinspection PyUnresolvedReferences
 logging.config.fileConfig('log.ini')
 log = logging.getLogger('crawler')
+
 
 def get_friends(user_ids):
     log.info("getting friends, sleeping 1 sec")

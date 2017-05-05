@@ -1,6 +1,7 @@
 import vk
 from configparser import ConfigParser
 
+
 def login_to_api(log):
     config = ConfigParser()
     config.read("settings.ini")

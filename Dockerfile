@@ -5,4 +5,5 @@ RUN apt-get update && apt-get install -y \
 RUN pip3 install vk grequests
 ADD . /root/ffod
 ADD . /root/ffod2
-RUN pip3 install -r /root/ffod/requirements.txt
+RUN pip3 install -r /root/ffod/requirements.txt && \
+    pip2 install -r /root/ffod/requirements.txt
